@@ -8,12 +8,16 @@ import org.springframework.stereotype.Component;
 import com.richardson.tbbtjankenpon.application.JogadaApplication;
 import com.richardson.tbbtjankenpon.model.Jogada;
 import com.richardson.tbbtjankenpon.service.JogadaService;
+import com.richardson.tbbtjankenpon.service.JogoService;
 
 @Component
 public class JogadaApplicationImpl implements JogadaApplication {
 
 	@Autowired
 	private JogadaService jogadaService;
+	
+	@Autowired
+	private JogoService jogoService;
 	
 	@Override
 	public void efetuarJogada(Jogada jogada) {
@@ -34,7 +38,7 @@ public class JogadaApplicationImpl implements JogadaApplication {
 
 	@Override
 	public String jogar() {
-		return this.jogadaService.jogar();
+		return this.jogoService.jogar();
 	}
 
 }
