@@ -15,13 +15,12 @@ public class JogadorBeanConfiguration {
 	public List<Jogador> jogadores() {
 
 		List<Jogador> jogadores = new ArrayList<>();
-		jogadores.add(new Jogador("George"));
-		jogadores.add(new Jogador("Arthur"));
-		jogadores.add(new Jogador("Mara"));
-//		jogadores.add(new Jogador("Iso"));
-//		jogadores.add(new Jogador("Jorge"));
+		jogadores.add(new Jogador("Jogador 1"));
+		jogadores.add(new Jogador("Jogador 2"));
+		jogadores.add(new Jogador("Jogador 3"));
+		jogadores.add(new Jogador("Jogador 4"));
+		jogadores.add(new Jogador("Jogador 5"));
 		
 		return jogadores;
-//		return new ArrayList<>();
 	}
 }

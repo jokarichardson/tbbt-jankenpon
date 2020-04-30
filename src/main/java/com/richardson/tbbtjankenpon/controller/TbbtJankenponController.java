@@ -33,7 +33,7 @@ public class TbbtJankenponController {
 	public ResponseEntity<Object> cadastrarJogador(@RequestBody @Valid Jogador jogador) {
 		try {
 			this.jogadorApplication.cadastrarJogador(jogador);
-			return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.CREATED);
 		} catch (Exception ex) {
 			return new ResponseEntity<>(this.criaErrorResponseMessage(ex, "/jogador"), HttpStatus.BAD_REQUEST);
 		}
@@ -43,7 +43,7 @@ public class TbbtJankenponController {
 	public ResponseEntity<Object> removerJogador(@RequestBody @Valid Jogador jogador) {
 		try {
 			this.jogadorApplication.removerJogador(jogador);
-			return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception ex) {
 			return new ResponseEntity<>(this.criaErrorResponseMessage(ex, "/jogador"), HttpStatus.BAD_REQUEST);
 		}
@@ -63,7 +63,7 @@ public class TbbtJankenponController {
 		try {
 			this.jogadaApplication.efetuarJogada(jogadaDTO);
 			;
-			return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.CREATED);
 		} catch (Exception ex) {
 			return new ResponseEntity<>(this.criaErrorResponseMessage(ex, "/jogada"), HttpStatus.BAD_REQUEST);
 		}
@@ -82,7 +82,7 @@ public class TbbtJankenponController {
 	public ResponseEntity<Object> removerJogadas() {
 		try {
 			this.jogadaApplication.removerJogadas();
-			return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception ex) {
 			return new ResponseEntity<>(this.criaErrorResponseMessage(ex, "/jogada"), HttpStatus.BAD_REQUEST);
 		}

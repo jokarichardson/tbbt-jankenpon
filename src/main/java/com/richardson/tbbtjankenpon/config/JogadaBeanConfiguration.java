@@ -12,6 +12,8 @@ import com.richardson.tbbtjankenpon.model.Jogador;
 import com.richardson.tbbtjankenpon.model.escolhas.Lagarto;
 import com.richardson.tbbtjankenpon.model.escolhas.Papel;
 import com.richardson.tbbtjankenpon.model.escolhas.Pedra;
+import com.richardson.tbbtjankenpon.model.escolhas.Tesoura;
+import com.richardson.tbbtjankenpon.model.escolhas.Spock;
 
 @Configuration
 public class JogadaBeanConfiguration {
@@ -26,15 +28,14 @@ public class JogadaBeanConfiguration {
 		Jogada jogada1 = new Jogada(this.jogadores.get(0), new Lagarto());
 		Jogada jogada2 = new Jogada(this.jogadores.get(1), new Pedra());
 		Jogada jogada3 = new Jogada(this.jogadores.get(2), new Papel());
-//		Jogada jogada4 = new Jogada(this.jogadores.get(3), new Tesoura());
-//		Jogada jogada5 = new Jogada(this.jogadores.get(4), new Spock());
+		Jogada jogada4 = new Jogada(this.jogadores.get(3), new Tesoura());
+		Jogada jogada5 = new Jogada(this.jogadores.get(4), new Spock());
 		jogadas.add(jogada1);
 		jogadas.add(jogada2);
 		jogadas.add(jogada3);
-//		jogadas.add(jogada4);
-//		jogadas.add(jogada5);
+		jogadas.add(jogada4);
+		jogadas.add(jogada5);
 		
 		return jogadas;
-//		return new ArrayList<>();
 	}
 }

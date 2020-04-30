@@ -49,28 +49,17 @@ public class JogoService {
 			return this.mensagemRetorno(Boolean.TRUE, jogadaVencedora);
 
 		for (Jogada jogada : this.jogadas) {
-			System.out.println("Jogada: ".concat(jogada.getOpcaoEscolhida().opcao().name()));
-
 			for (Jogada contraJogada : this.jogadas) {
-				System.out.println("Contra Jogada: ".concat(contraJogada.getOpcaoEscolhida().opcao().name()));
-
 				if (jogada.getJogador().getNome().equalsIgnoreCase(contraJogada.getJogador().getNome())) {
-					System.out.println("Pulando...comparando com mesmo jogador");
 					continue;
 				}
 
 				OpcoesEnum retorno = this.avaliarOpcoes(jogada, contraJogada);
 
-				System.out.println("Avaliando jogada...Retorno: ".concat(retorno.name()));
-
 				if (retorno.equals(jogada.getOpcaoEscolhida().opcao())) {
-					System.out.println("Vencedor: ".concat(retorno.name()));
 					if (Objects.nonNull(jogadaVencedora.getJogador())) {
-						System.out.println("Comparando com vencedor anterior: "
-								.concat(jogadaVencedora.getOpcaoEscolhida().opcao().name()));
 						retorno = this.avaliarOpcoes(jogadaVencedora, jogada);
 
-						System.out.println("Vencedor: ".concat(retorno.name()));
 						if (retorno.equals(jogada.getOpcaoEscolhida().opcao())) {
 							jogadaVencedora = jogada;
 						}
@@ -78,14 +67,9 @@ public class JogoService {
 						jogadaVencedora = jogada;
 					}
 				} else {
-					System.out.println("Vencedor: ".concat(retorno.name()));
-
 					if (Objects.nonNull(jogadaVencedora.getJogador())) {
-						System.out.println("Comparando com vencedor anterior: "
-								.concat(jogadaVencedora.getOpcaoEscolhida().opcao().name()));
 						retorno = this.avaliarOpcoes(jogadaVencedora, contraJogada);
 
-						System.out.println("Vencedor: ".concat(retorno.name()));
 						if (retorno.equals(contraJogada.getOpcaoEscolhida().opcao())) {
 							jogadaVencedora = contraJogada;
 						}
@@ -115,9 +99,9 @@ public class JogoService {
 
 	private String mensagemRetorno(Boolean empate, Jogada jogadaVencedora) {
 		if (empate)
-			return this.messageUtils.get("msg.jogador.empate");
+			return this.messageUtils.get("msg.jogada.empate");
 		else
-			return MessageFormat.format(this.messageUtils.get("msg.jogador.vencedor"),
+			return MessageFormat.format(this.messageUtils.get("msg.jogada.vencedora"),
 					jogadaVencedora.getJogador().getNome(), jogadaVencedora.getOpcaoEscolhida().opcao());
 	}
 }
