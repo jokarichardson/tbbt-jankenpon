@@ -110,6 +110,16 @@ Para avaliar as jogadas em memória, seguir os passos abaixo:
   "path": "/jogada"
 }
 ```
+
+## Exclusão de Jogadas (Reset de Jogo)
+
+Para remover todas as jogadas, ou seja, reiniciar o jogo, seguir os passos abaixo:
+
+1. Endpoint: /jogada
+2. Método: DELETE
+3. Ao ser consumido o endpoint <b>/jogada</b>, via método <i>DELETE</i>, a aplicação fará a exclusão de todas as jogadas já cadastradas.
+5. Resposta de sucesso esperada: <b>HttpStatus 204 - No Content</b>
+
 ## Criação de Jogadas
 
 Para criar uma jogada, seguir os passos abaixo:
@@ -170,15 +180,6 @@ Para verificar as jogadas já realizadas, seguir os passos abaixo:
     }
 ]
 ```
-
-## Exclusão de Jogadas (Reset de Jogo)
-
-Para remover todas as jogadas, ou seja, reiniciar o jogo, seguir os passos abaixo:
-
-1. Endpoint: /jogada
-2. Método: DELETE
-3. Ao ser consumido o endpoint <b>/jogada</b>, via método <i>DELETE</i>, a aplicação fará a exclusão de todas as jogadas já cadastradas.
-5. Resposta de sucesso esperada: <b>HttpStatus 204 - No Content</b>
 
 ## Cadastramento de Jogadores
 
