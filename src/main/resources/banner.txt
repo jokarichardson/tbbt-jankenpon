@@ -4,7 +4,7 @@
    | |   | |_) | | |_) |   | |   |_____| | |_| |  / ___ \  | |\  | | . \  | |___  | |\  | |  __/  | |_| | | |\  |
    |_|   |____/  |____/    |_|            \___/  /_/   \_\ |_| \_| |_|\_\ |_____| |_| \_| |_|      \___/  |_| \_|
                                                                                                                  
-                       Jogo de Jokenpô exibido no seriado The Big Bang Theory pelo Sheldon                       
-                                    Copyright © 2020 Richardson Software Ltda                                    
+                       Jogo de JokenpÃ´ exibido no seriado The Big Bang Theory pelo Sheldon                       
+                                    Copyright Â© 2020 Richardson Software Ltda                                    
 -----------------------------------------------------------------------------------------------------------------
 

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.richardson.tbbtjankenpon.application.JogadaApplication;
 import com.richardson.tbbtjankenpon.application.JogadorApplication;
-import com.richardson.tbbtjankenpon.model.Jogada;
 import com.richardson.tbbtjankenpon.model.Jogador;
+import com.richardson.tbbtjankenpon.model.dto.JogadaDTO;
 import com.richardson.tbbtjankenpon.model.response.ErrorResponseMessage;
 import com.richardson.tbbtjankenpon.support.ResponseUtils;
 
@@ -59,9 +59,9 @@ public class TbbtJankenponController {
 	}
 
 	@PostMapping(value = "jogada", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> efetuarJogada(@RequestBody @Valid Jogada jogada) {
+	public ResponseEntity<Object> efetuarJogada(@RequestBody @Valid JogadaDTO jogadaDTO) {
 		try {
-			this.jogadaApplication.efetuarJogada(jogada);
+			this.jogadaApplication.efetuarJogada(jogadaDTO);
 			;
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception ex) {

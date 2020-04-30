@@ -1,10 +1,17 @@
 package com.richardson.tbbtjankenpon.model;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.richardson.tbbtjankenpon.model.dto.JogadaDTO;
 import com.richardson.tbbtjankenpon.model.escolhas.Escolha;
 
-public class Jogada {
+@JsonSerialize
+public class Jogada implements Serializable {
+
+	private static final long serialVersionUID = -8495925687248313640L;
 	
 	@NotNull
 	private Jogador jogador;
@@ -33,6 +40,16 @@ public class Jogada {
 		this.opcaoEscolhida = opcaoEscolhida;
 	}
 	
+	public static JogadaDTO toJogadaDTO(Jogada jogada) {
+		return new JogadaDTO(jogada.getJogador().getNome(), jogada.getOpcaoEscolhida().opcao());
+	}
 	
+	public static Jogada fromJogadaDTO(JogadaDTO jogadaDTO) {
+		Jogada jogada = new Jogada();
+		jogada.setJogador(new Jogador(jogadaDTO.getJogador()));
+		jogada.setOpcaoEscolhida(Escolha.fromOpcoesEnum(jogadaDTO.getEscolha()));
+		
+		return jogada;
+	}
 
 }

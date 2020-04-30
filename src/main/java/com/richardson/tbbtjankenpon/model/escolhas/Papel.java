@@ -1,11 +1,16 @@
 package com.richardson.tbbtjankenpon.model.escolhas;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.richardson.tbbtjankenpon.enums.OpcoesEnum;
 
-public class Papel extends Escolha {
+@JsonSerialize
+public class Papel extends Escolha implements Serializable {
+
+	private static final long serialVersionUID = 2093073720991701634L;
 
 	@Override
 	public OpcoesEnum opcao() {

@@ -17,7 +17,19 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-dependencies:2.0.5.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation(
+    	'junit:junit:4.12',
+    	'org.junit.jupiter:junit-jupiter-api:5.4.2',
+		'org.mockito:mockito-junit-jupiter:3.2.4',
+        'org.springframework.boot:spring-boot-starter-logging:2.2.0.RELEASE'
+
+		
+    )
+    
+    testRuntime(
+    	'org.junit.vintage:junit-vintage-engine:5.4.2',
+	    'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+    )
 
     components {
         withModule('org.springframework:spring-beans') {
@@ -29,6 +41,8 @@ dependencies {
             }
         }
     }
+    
+    
 }
 
 test {

@@ -19,21 +19,39 @@ Cada opção tem suas vantagens e desvantagens com relação às demais, conform
 
 | Opção | Descrição Evento | Outra Opção |
 |------|-----|-----|
-|1|2|3|
+|Pedra |quebra a |Tesoura|
+|Pedra |esmaga o |Lagarto|
+|Papel |cobre a |Pedra|
+|Papel |refuta o |Spock|
+|Tesoura |corta o |Papel|
+|Tesoura |mata o |Lagarto|
+|Lagarto |come o |Papel|
+|Lagarto |envenena o |Spock|
+|Spock |quebra a |Tesoura|
+|Spock |vaporiza a |Pedra|
+
+## Tecnologias Utilizadas
+
+- Java 8;
+- Spring Boot;
+- Gradle;
+- REST
 
 ## Execução em Nuvem
 
-Acessar a URL https://dna-analyzer.herokuapp.com/, via Postman ou via navegador.
-Em sendo acessada via navegador, será apresentada a interface do Swagger com as operações disponíveis.
+Encontra-se em execução no Heroku, através da URL https://tbbt-jankenpon.herokuapp.com/
 
-## Avaliação de Cadeias de DNA
 
-1. Dada uma determinada sequência de cadeias de DNA, com o formato JSON abaixo:
+## Criação de Jogadas
+
+Para se criar uma jogada, seguir os passos abaixo:
+
+1. Endpoint: /jogada
+2. Método: POST
+3. Payload:
 
 ```javascript
-{
-  "dna": ["TCTTAC", "CTTGAC", "TGATCT", "GTATGG", "GCTCTA", "TCAGTG"]
-}
+
 ```
 
 2. Ao ser chamado o endpoint <b>/simian</b>, via método <i>POST</i>, a aplicação avaliará se se trata de humano ou símio:

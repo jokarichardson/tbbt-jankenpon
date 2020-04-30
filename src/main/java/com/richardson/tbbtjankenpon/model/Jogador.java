@@ -1,8 +1,15 @@
 package com.richardson.tbbtjankenpon.model;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
 
-public class Jogador {
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonSerialize
+public class Jogador implements Serializable {
+	private static final long serialVersionUID = 6827780842322935158L;
+	
 	@NotNull
 	private String nome;
 	

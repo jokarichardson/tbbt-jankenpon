@@ -1,5 +1,6 @@
 package com.richardson.tbbtjankenpon.application.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.richardson.tbbtjankenpon.application.JogadaApplication;
 import com.richardson.tbbtjankenpon.model.Jogada;
+import com.richardson.tbbtjankenpon.model.dto.JogadaDTO;
 import com.richardson.tbbtjankenpon.service.JogadaService;
 import com.richardson.tbbtjankenpon.service.JogoService;
 
@@ -20,9 +22,8 @@ public class JogadaApplicationImpl implements JogadaApplication {
 	private JogoService jogoService;
 	
 	@Override
-	public void efetuarJogada(Jogada jogada) {
-		this.jogadaService.efetuarJogada(jogada);
-
+	public void efetuarJogada(JogadaDTO jogadaDTO) {
+		this.jogadaService.efetuarJogada(Jogada.fromJogadaDTO(jogadaDTO));
 	}
 
 	@Override
@@ -32,8 +33,10 @@ public class JogadaApplicationImpl implements JogadaApplication {
 	}
 
 	@Override
-	public List<Jogada> listarJogadas() {
-		return this.jogadaService.listarJogadas();
+	public List<JogadaDTO> listarJogadas() {
+		List<JogadaDTO> jogadaDTOList = new ArrayList<>();
+		this.jogadaService.listarJogadas().forEach(jogada -> jogadaDTOList.add(Jogada.toJogadaDTO(jogada)));
+		return jogadaDTOList;
 	}
 
 	@Override

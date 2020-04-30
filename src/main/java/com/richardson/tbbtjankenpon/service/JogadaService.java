@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 
 import com.richardson.tbbtjankenpon.exception.TbbtJankenponGeneralException;
 import com.richardson.tbbtjankenpon.model.Jogada;
+import com.richardson.tbbtjankenpon.support.MessageUtils;
 
 @Service
 public class JogadaService {
 	
 	@Autowired
 	private List<Jogada> jogadas;
+	
+	@Autowired
+	private MessageUtils messageUtils;
 	
 	public List<Jogada> listarJogadas() {
 		return this.jogadas;
@@ -31,6 +35,8 @@ public class JogadaService {
 			if (!this.jogadas.stream().filter(filtroNomeJogador).findAny()
 					.isPresent())
 				this.jogadas.add(jogada);
+			else 
+				throw new TbbtJankenponGeneralException(this.messageUtils.get("msg.jogada.ja.realizada"));
 		} catch (Exception ex) {
 			throw new TbbtJankenponGeneralException(ex.getMessage());
 		}

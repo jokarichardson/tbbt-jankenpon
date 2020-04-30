@@ -1,6 +1,7 @@
 package com.richardson.tbbtjankenpon.service;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,7 @@ import org.springframework.util.CollectionUtils;
 import com.richardson.tbbtjankenpon.enums.OpcoesEnum;
 import com.richardson.tbbtjankenpon.exception.TbbtJankenponGeneralException;
 import com.richardson.tbbtjankenpon.model.Jogada;
+import com.richardson.tbbtjankenpon.support.JogoValidator;
 import com.richardson.tbbtjankenpon.support.MessageUtils;
 
 @Service
@@ -22,10 +24,19 @@ public class JogoService {
 	private List<Jogada> jogadas;
 
 	@Autowired
+	private JogoValidator jogoValidator;
+	
+	@Autowired
 	private MessageUtils messageUtils;
-
+	
+	public JogoService() {
+		if (CollectionUtils.isEmpty(this.jogadas)) {
+			this.jogadas = new ArrayList<>();
+		}
+	}
+	
 	public String jogar() {
-		if (CollectionUtils.isEmpty(this.jogadas) || this.jogadas.size() < 2)
+		if (!jogoValidator.validarQuantidadeJogadas(this.jogadas))
 			throw new TbbtJankenponGeneralException(this.messageUtils.get("msg.jogadores.insuficientes"));
 
 		return this.realizarPartida();
@@ -37,10 +48,10 @@ public class JogoService {
 		if (this.avaliarEmpateInicial())
 			return this.mensagemRetorno(Boolean.TRUE, jogadaVencedora);
 
-		for (Jogada jogada : jogadas) {
+		for (Jogada jogada : this.jogadas) {
 			System.out.println("Jogada: ".concat(jogada.getOpcaoEscolhida().opcao().name()));
 
-			for (Jogada contraJogada : jogadas) {
+			for (Jogada contraJogada : this.jogadas) {
 				System.out.println("Contra Jogada: ".concat(contraJogada.getOpcaoEscolhida().opcao().name()));
 
 				if (jogada.getJogador().getNome().equalsIgnoreCase(contraJogada.getJogador().getNome())) {
@@ -53,13 +64,13 @@ public class JogoService {
 				System.out.println("Avaliando jogada...Retorno: ".concat(retorno.name()));
 
 				if (retorno.equals(jogada.getOpcaoEscolhida().opcao())) {
-					System.out.println("Decisão: Vitória de ".concat(retorno.name()));
+					System.out.println("Vencedor: ".concat(retorno.name()));
 					if (Objects.nonNull(jogadaVencedora.getJogador())) {
 						System.out.println("Comparando com vencedor anterior: "
 								.concat(jogadaVencedora.getOpcaoEscolhida().opcao().name()));
 						retorno = this.avaliarOpcoes(jogadaVencedora, jogada);
 
-						System.out.println("Decisão: Vitória de ".concat(retorno.name()));
+						System.out.println("Vencedor: ".concat(retorno.name()));
 						if (retorno.equals(jogada.getOpcaoEscolhida().opcao())) {
 							jogadaVencedora = jogada;
 						}
@@ -67,14 +78,14 @@ public class JogoService {
 						jogadaVencedora = jogada;
 					}
 				} else {
-					System.out.println("Decisão: Vitória de ".concat(retorno.name()));
+					System.out.println("Vencedor: ".concat(retorno.name()));
 
 					if (Objects.nonNull(jogadaVencedora.getJogador())) {
 						System.out.println("Comparando com vencedor anterior: "
 								.concat(jogadaVencedora.getOpcaoEscolhida().opcao().name()));
 						retorno = this.avaliarOpcoes(jogadaVencedora, contraJogada);
 
-						System.out.println("Decisão: Vitória de ".concat(retorno.name()));
+						System.out.println("Vencedor: ".concat(retorno.name()));
 						if (retorno.equals(contraJogada.getOpcaoEscolhida().opcao())) {
 							jogadaVencedora = contraJogada;
 						}
