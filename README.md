@@ -80,11 +80,11 @@ Para executar a aplicação, digite o seguinte comando na pasta raiz do projeto:
 Encontra-se em execução no Heroku, através da URL https://tbbt-jankenpon.herokuapp.com/
 
 ## Preparação para jogar:
-<p>
-A aplicação virá com 5 jogadores carregados em memória, bem como 5 jogadas. Esse conjunto de jogadas resultará em empate entre os jogadores.
-São necessários 2 jogadores, no mínimo, para jogar.
-Para avaliar o jogo preparado, ou mesmo jogar com suas jogadas criadas, siga os passos em "Como Jogar".
-</p>
+
+<p id="section1">A aplicação virá com 5 jogadores carregados em memória, bem como 5 jogadas. Esse conjunto de jogadas resultará em empate entre os jogadores.<br>
+São necessários 2 jogadores, no mínimo, para jogar.<br>
+Para avaliar o jogo preparado, ou mesmo jogar com suas jogadas criadas, siga os passos em "Como Jogar".</p>
+
 ## Como Jogar
 
 Para avaliar as jogadas em memória, seguir os passos abaixo:
