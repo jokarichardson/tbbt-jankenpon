@@ -80,11 +80,11 @@ Para executar a aplicação, digite o seguinte comando na pasta raiz do projeto:
 Encontra-se em execução no Heroku, através da URL https://tbbt-jankenpon.herokuapp.com/
 
 ## Preparação para jogar:
-
+<p>
 A aplicação virá com 5 jogadores carregados em memória, bem como 5 jogadas. Esse conjunto de jogadas resultará em empate entre os jogadores.
 São necessários 2 jogadores, no mínimo, para jogar.
 Para avaliar o jogo preparado, ou mesmo jogar com suas jogadas criadas, siga os passos em "Como Jogar".
-
+</p>
 ## Como Jogar
 
 Para avaliar as jogadas em memória, seguir os passos abaixo:
@@ -112,7 +112,7 @@ Para avaliar as jogadas em memória, seguir os passos abaixo:
 ```
 ## Criação de Jogadas
 
-Para se criar uma jogada, seguir os passos abaixo:
+Para criar uma jogada, seguir os passos abaixo:
 
 1. Endpoint: /jogada
 2. Método: POST
@@ -124,7 +124,7 @@ Para se criar uma jogada, seguir os passos abaixo:
 }
 ```
 
-4. Ao ser consumido o endpoint <b>/jogada</b>, via método <i>POST</i>, a aplicação avaliará se a esse jogador já efetuou sua jogada.
+4. Ao ser consumido o endpoint <b>/jogada</b>, via método <i>POST</i>, a aplicação avaliará se esse jogador já efetuou sua jogada.
 5. Resposta de sucesso esperada: <b>HttpStatus 201 - Created</b>
 6. Caso o jogador tenha feito sua jogada anteriormente, será respondido <b>HttpStatus 400 - Bad Request</b>, com o response abaixo:
 
@@ -195,7 +195,7 @@ Para se criar um jogador, seguir os passos abaixo:
 }
 ```
 
-4. Ao ser consumido o endpoint <b>/jogador</b>, via método <i>POST</i>, a aplicação avaliará se a esse jogador já fora incluído.
+4. Ao ser consumido o endpoint <b>/jogador</b>, via método <i>POST</i>, a aplicação avaliará se esse jogador já fora incluído.
 5. Resposta de sucesso esperada: <b>HttpStatus 201 - Created</b>
 6. Caso o jogador tenha sido cadastrado anteriormente, será respondido <b>HttpStatus 400 - Bad Request</b>, com o response abaixo:
 
